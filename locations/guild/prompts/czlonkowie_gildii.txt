@@ -1,0 +1,7 @@
+Wygeneruj zestaw sprite sheetów grywalnych członków drużyny do gry fantasy 2D pixel art. Widok z góry w lekkim rzucie 3/4. Przygotuj cztery rozpoznawalne archetypy: rycerz z tarczą, łuczniczka z łukiem, mag z kosturem, kapłan z laską i jasnym symbolem. Sylwetki i wyposażenie mają być czytelne nawet w małym rozmiarze.
+
+Dla każdego archetypu osobny arkusz 4 kolumny × 4 wiersze, klatka 48 × 48 px. Wiersze: dół, lewo, prawo, góra. Kolumny: 4 klatki chodu. Każda postać wyśrodkowana, zajmuje około 26 × 34 px. Ta sama paleta i proporcje postaci we wszystkich kierunkach; broń pozostaje widoczna i nie znika między klatkami. Arkusze bez podpisów, ramek i odstępów między komórkami.
+
+Crisp 2D pixel art, wyraźne piksele, ograniczona paleta kolorów, ciemny obrys 1 px, przezroczyste tło, bez antyaliasingu, rozmycia i wygładzania. Spójny ręcznie rysowany styl fantasy, zgodny z bohaterem i potworami w grze. Nie umieszczaj kilku postaci w jednej klatce.
+
+NEGATIVE: 3D, realizm, gładka grafika wektorowa, antyaliasing, tło, napisy, watermark, brakujące części broni, dodatkowe kończyny, różne rozmiary klatek.

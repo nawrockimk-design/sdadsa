@@ -1,0 +1,43 @@
+Stworz atlas assetow do gry 2D fantasy pixel art: meble i rekwizyty wnetrza gildii poszukiwaczy przygod.
+
+PERSPEKTYWA I STYL
+- Scisly widok z gory 90 stopni, kamera prostopadle nad obiektami. Nie izometria, nie rzut 3/4, nie widok z boku.
+- Rysowane recznie w pixel arcie: ostre, kwadratowe piksele, ograniczona paleta ciemnego i sredniego drewna, kamienia, stali oraz granatowej tkaniny.
+- Czytelny, ciemny obrys 1-2 px. Oswietlenie od gory z lewej. Bez antyaliasingu, rozmycia, gradientow i fotograficznych tekstur.
+- Kazdy sprite ma pasowac do siatki gry 48 px na kafelek i pozostac czytelny po wyswietleniu w rozmiarze 48-96 px.
+- Klimat skromnej, uzywanej gildii; zadnego zlota ani przepychu. Bez nowych herbów, liter, symboli ani nazw wlasnych.
+
+ARKUSZ
+- Dokladnie 4 kolumny x 3 wiersze.
+- Kazda komorka ma dokladnie 96 x 96 px. Caly obraz ma 384 x 288 px.
+- Komorki stykaja sie bez odstepow i ramek; kazdy obiekt znajduje sie w całości we wlasnej komorce.
+- Przezroczyste tlo RGBA poza obiektami. Bez podlogi, sceny, siatki, numerow, podpisow i tekstu.
+- Obiekt wycentrowany w komorce, zajmuje okolo 76-88 px szerokosci/wysokosci tam, gdzie pozwala jego ksztalt. Nie obcinaj obiektow.
+- Zachowaj podana kolejnosc od lewej do prawej, najpierw caly wiersz, potem nastepny.
+
+ZAWARTOSC KOMOREK
+Wiersz 1:
+1. Tablica zlecen gildii z kilkoma pustymi pergaminami przypietymi do deski.
+2. Okragly stol narad widziany z gory, z czterema krzeslami i mapa na blacie.
+3. Pojedyncze drewniane lozko widziane z gory, z poduszka i granatowo-purpurowym kocem.
+4. Pulpit kreślarski widziany z gory, z rozlozonymi pustymi planami budowy.
+
+Wiersz 2:
+1. Lada recepcji gildii widziana z gory, z mala ksiega i pustym blatem.
+2. Wysoki regal z ksiegami widziany z gory, bez czytelnych tytulow.
+3. Zamknieta skrzynia na ekwipunek widziana z gory.
+4. Kominek widziany z gory, z kamienna obudowa i malym ogniem.
+
+Wiersz 3:
+1. Drewniane drzwi wejsciowe widziane z gory, pojedyncze, zamkniete.
+2. Wolnostojacy stojak na bron widziany z gory, z kilkoma prostymi sylwetkami broni.
+3. Mala latarnia podlogowa widziana z gory, z cieplym swiatlem bez poswiaty poza komorka.
+4. Prostokatny dywan gildii widziany z gory, prosty wzor bez liter i symboli.
+
+WAZNE
+- Wszystkie 12 komorek musza zawierac dokladnie jeden odrebny sprite.
+- Sprite'y sa elementami gry z widoku z gory; nie rysuj widocznych przednich elewacji mebli.
+- Nie dodawaj postaci, rak, cieni otoczenia, tla, podlogi, dodatkowych przedmiotow ani dekoracyjnych ramek atlasu.
+
+NEGATIVE PROMPT
+isometric, 3/4 view, side view, perspective camera, 3D render, smooth vector art, anti-aliasing, blur, gradients, photorealism, background, room scene, floor tiles, cell borders, grid lines, labels, letters, readable text, watermark, cropped objects, objects crossing cell boundaries, extra objects, characters

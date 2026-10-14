@@ -1,0 +1,7 @@
+Wygeneruj kompletny tileset średniowiecznego miasta fantasy Valdoria do gry 2D pixel art. Widok z góry w lekkim rzucie 3/4, spójny kierunek światła z góry z lewej. Przezroczysty arkusz sprite'ów, bez sceny demonstracyjnej i bez podpisów.
+
+Siatka 48 × 48 px, 8 kolumn × 6 wierszy, łącznie 48 niezależnych kafli. Każdy kafel dokładnie 48 × 48 px, bez przerw i ramek. Zawartość kolejno: trawa (kilka wariantów), ziemia, bruk, płyty rynku, pozioma i pionowa droga, narożniki i skrzyżowania dróg, brzegi rzeki, cztery kierunki brzegu wody, woda w kilku wariantach, most, fragment muru i wieżyczki, żywopłot, kwietnik, schodki, drewniany pomost, drzwi i okna jako osobne dekoracje, plamy cienia pod obiektami. Powtarzalne krawędzie kafli muszą łączyć się bez widocznych szwów.
+
+Prawdziwy 2D pixel art, ostre piksele, ograniczona paleta 24 kolorów, obrys 1 px tam, gdzie potrzebny, bez antyaliasingu, rozmycia, gradientów, perspektywy izometrycznej i 3D. Każdy kafel czytelny w rozmiarze 48 px i spójny kolorystycznie z assetami Valdorii. Zachowaj ścisłą równą siatkę, bez dodatkowych elementów poza planszą.
+
+NEGATIVE: 3D, tekst, ikony poza siatką, plansza z opisami, nierówne komórki, różne rozmiary, szwy na krawędziach, antyaliasing, realistyczne tekstury, tło inne niż przezroczyste.

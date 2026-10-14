@@ -1,0 +1,7 @@
+Wygeneruj asset ratusza Valdorii do gry 2D pixel art fantasy. Widok z góry w lekkim rzucie 3/4, przód budynku skierowany w dół obrazu. Monumentalny, ale przytulny średniowieczny ratusz: jasny kamienny parter, ciemnoniebieski dach, centralna wieżyczka zegarowa bez czytelnych cyfr, szerokie wejście, dwa sztandary w kolorze złotym. Sylwetka ma się wyróżniać na tle miasta.
+
+Pojedynczy budynek, grafika 288 × 224 px, przezroczyste tło, margines minimum 8 px, brak innych obiektów. Dach, wieża i wejście w całości widoczne. Bez napisów, liter, ludzi, dróg, cieni rzucanych na otoczenie i bez ramki prezentacyjnej. Asset przeznaczony do mapy z widokiem z góry.
+
+Ręcznie rysowany 2D pixel art, mocno zaznaczone piksele, ograniczona paleta 24 kolorów, obrys 1 px, czytelne kamienne detale i dachówki, ciepłe światło z góry z lewej. Bez antyaliasingu, rozmycia i gradientów. Zgodny stylistycznie z pozostałymi assetami Valdorii.
+
+NEGATIVE: 3D, realizm, ilustracja bez pikseli, widok z poziomu człowieka, antyaliasing, tło, plansza, tekst, logo, watermark, obcięte elementy.

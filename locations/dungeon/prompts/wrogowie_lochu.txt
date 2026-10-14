@@ -1,0 +1,7 @@
+Wygeneruj sprite sheet przeciwników do mrocznej, ale czytelnej gry fantasy 2D pixel art. Widok z góry w lekkim rzucie 3/4. W jednej planszy umieść cztery osobne, łatwo odróżnialne potwory: zielony goblin z prymitywną włócznią, szkielet z krótkim mieczem, fioletowy jaskiniowy stwór oraz mały czerwony demon. Nie dodawaj tła, napisów, ramek ani elementów interfejsu.
+
+Każdy potwór ma osobny arkusz 4 × 4 klatki: 4 kierunki (dół, lewo, prawo, góra) × 4 klatki chodu. Łącznie 4 arkusze ułożone w czytelnej siatce; nad każdym zostaw pusty odstęp zamiast podpisu. Pojedyncza klatka 48 × 48 px; wszystkie klatki idealnie wyrównane, postać około 26 × 30 px i wyśrodkowana. Kierunek patrzenia ma być jednoznaczny. Zachowaj ten sam wygląd danego potwora we wszystkich kierunkach i klatkach.
+
+Prawdziwy, lekko pikselowy 2D pixel art, nie ilustracja: ostre piksele, ograniczona paleta, czytelny obrys 1 px, bez wygładzania, antyaliasingu, rozmycia i gradientów. Przezroczyste tło. Kontrastowe kolory odróżniające potwory od kamiennej podłogi lochu. Zachowaj spójny styl fantasy, proporcje i poziom szczegółu.
+
+NEGATIVE: 3D, render, realistyczny obraz, gładkie krawędzie, antyaliasing, tło, podłoże, cienie poza sylwetką, napisy, numery, watermark, niesymetryczne błędne klatki, postacie ucięte przez krawędź.

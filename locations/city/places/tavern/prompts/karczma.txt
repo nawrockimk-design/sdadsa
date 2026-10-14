@@ -1,0 +1,7 @@
+Wygeneruj sprite średniowiecznej karczmy „Pod Złamaną Strzałą” do gry 2D pixel art fantasy. Widok z góry w lekkim rzucie 3/4; wejście i fasada skierowane do dołu obrazu. Duży przytulny budynek z ciepłym brązowym dachem, czerwono-kremowym pasiastym daszkiem nad wejściem, kominem, kilkoma oknami świecącymi złotym światłem i drewnianą beczką przy ścianie. Szyld przedstaw tylko jako piktogram złamanej strzały, bez żadnych liter.
+
+Jeden budynek na przezroczystym tle, obszar 240 × 192 px, margines minimum 8 px. Czytelny dach i drzwi, bez ludzi, otoczenia, ziemi, drogi, tekstu, ramki ani planszy. Element przeznaczony do użycia na mapie widzianej z góry.
+
+Ręcznie rysowany 2D pixel art, ostre piksele i obrys 1 px, ograniczona paleta około 24 kolorów, ciepłe światło w oknach, subtelne detale drewna i dachówek. Bez wygładzania, antyaliasingu, rozmycia i gradientów. Styl zgodny z Valdorią.
+
+NEGATIVE: 3D, realistyczna fotografia, widok z poziomu ulicy, gładkie krawędzie, tło, tekst lub czytelne litery, watermark, obcięta grafika, scena koncepcyjna.

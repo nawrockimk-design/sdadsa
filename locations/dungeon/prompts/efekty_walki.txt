@@ -1,0 +1,12 @@
+Wygeneruj arkusz animacji efektów walki do gry fantasy 2D pixel art. Przezroczyste tło i równa siatka komórek 48 × 48 px. Efekty są oddzielnymi sprite sheetami z klatkami ustawionymi poziomo, bez ramek i napisów:
+1) krótki łuk cięcia mieczem, 6 klatek;
+2) małe czerwone trafienie / błysk obrażeń, 4 klatki;
+3) niebieski wir magicznego cięcia obszarowego, 8 klatek;
+4) złote iskry leczenia, 6 klatek;
+5) mały pocisk magiczny, 6 klatek.
+
+Każda animacja ma osobny rząd klatek, komórki dokładnie 48 × 48 px, środek efektu w tym samym punkcie każdej klatki. Wymagane przezroczyste piksele, bez pola tła. Efekty muszą być czytelne nad ciemnym lochowym kaflem i nie mogą zasłaniać całej postaci.
+
+2D pixel art, ostre pojedyncze piksele, mała liczba jasnych barw, bez antyaliasingu, blur, gradientów i 3D. Zadbaj o czysty początek i koniec animacji, ograniczoną liczbę pikseli i spójny styl z bohaterem, potworami oraz kaflami lochu.
+
+NEGATIVE: 3D, rozmycie, dym zasłaniający ekran, tło, tekst, watermark, różne rozmiary komórek, nieregularne odstępy, efekty wychodzące poza klatkę.

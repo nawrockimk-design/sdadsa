@@ -1,0 +1,7 @@
+Wygeneruj sprite warsztatu miejskiego kowala do gry fantasy 2D pixel art. Widok z góry w lekkim rzucie 3/4, front i drzwi od dołu obrazu. Niski warsztat z drewnianymi ścianami, ciemnym ceglastym dachem, kamiennym paleniskiem, widocznym kominem z delikatnym dymem złożonym z kilku pikseli, szyldem w kształcie młota bez liter oraz drobnymi narzędziami przy wejściu.
+
+Pojedynczy, kompletny budynek na przezroczystym tle, pole 224 × 176 px, obiekt centralny i margines 8 px. Żaden element nie może być ucięty. Bez drogi, postaci, otoczenia, podpisu, tekstu, ramki ani tła. Użyj kontrastowego dachu, aby warsztat łatwo rozpoznać na mapie.
+
+2D pixel art, widoczne piksele, ograniczona paleta, obrys 1 px, ciepłe światło z paleniska, starannie zarysowane dachówki i drewno. Bez antyaliasingu, rozmycia, gradientów i wygładzania. Spójny fantasy art direction z miastem Valdoria.
+
+NEGATIVE: 3D, fotografia, izometryczny render, widok z poziomu ulicy, antyaliasing, tło, cały krajobraz, tekst, logo, watermark, dym zasłaniający budynek.

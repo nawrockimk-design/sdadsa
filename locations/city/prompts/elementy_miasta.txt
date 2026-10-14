@@ -1,0 +1,7 @@
+Wygeneruj przezroczysty arkusz małych dekoracji miasta fantasy do gry 2D pixel art, widok z góry w lekkim rzucie 3/4. Siatka 4 kolumny × 4 wiersze; każda komórka 64 × 64 px, bez przerw i ramek. Każdy obiekt osobno i centralnie: latarnia uliczna zapalona, latarnia zgaszona, drewniana ławka, kamienna fontanna, drewniany szyld bez tekstu, skrzynka warzyw, beczka, worek zboża, donica z krzewem, małe drzewo, kępa kwiatów, studnia, stos drewna, wózek kupiecki, słupek ogłoszeniowy z pustym pergaminem, kosz.
+
+Obiekty mają mieć skalę zgodną z postacią 48 × 48 px i dać się niezależnie umieszczać na kaflach. Tło każdej komórki przezroczyste; żadnego miasta, podłogi, dodatkowych ludzi, podpisów ani opisów. Kompozycja bez elementów nachodzących na sąsiednią komórkę.
+
+2D pixel art, widoczne piksele, ograniczona paleta, obrys 1 px, światło z góry z lewej. Bez antyaliasingu, rozmycia, gradientów i renderu 3D. Spójny historyczno-fantasy styl, ciepłe drewno i kamień, czytelne małe kształty.
+
+NEGATIVE: 3D, fotografia, tło, pełna scena, tekst, logo, watermark, antyaliasing, nierówne komórki, przedmioty ucięte na krawędziach.

@@ -1,0 +1,7 @@
+Wygeneruj tileset lochu do gry fantasy 2D pixel art, widok z góry w lekkim rzucie 3/4. Arkusz przezroczysty, precyzyjna siatka 48 × 48 px, 8 kolumn × 6 wierszy. Każdy kafel dokładnie 48 × 48 px, równo wyrównany, bez przerw i ramek.
+
+Zestaw kafli: kamienna podłoga w 6 wariantach, spękana podłoga, kałuża, mech, kości, narożniki i proste fragmenty kamiennych ścian, ściana z mchem, otwarte drzwi w czterech kierunkach, zamknięte drzwi, przeszkoda kamienna, skrzynia zamknięta i otwarta, schody w dół, portal powrotny z subtelną niebieską poświatą, ślady walki. Krawędzie powtarzalnych kafli muszą bezszwowo się łączyć. Nie dodawaj napisów ani objaśnień.
+
+Crisp 2D pixel art, wyraźne pojedyncze piksele i ograniczona paleta chłodnych szarości, przygaszonej zieleni i niewielkich akcentów czerwieni oraz błękitu. Ciemny obrys 1 px; światło z góry z lewej. Bez antyaliasingu, gradientów, blur, realistycznych tekstur i 3D. Musi pozostać czytelny w rozmiarze kafla 48 px.
+
+NEGATIVE: 3D, izometria, fotografia, rozmycie, antyaliasing, tekst, podpisy, watermark, nierówna siatka, kafle o różnych rozmiarach, elementy wychodzące poza komórki.

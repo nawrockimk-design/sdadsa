@@ -1,0 +1,685 @@
+PODZIAL GRY RPG NA 12 SEKCJI
+============================
+
+Cel dokumentu
+-------------
+Ten dokument porzadkuje cala gre w dwanascie glownych sekcji funkcjonalnych.
+Opisuje, co nalezy do kazdej sekcji, jakie systemy sie z nia lacza i jak
+rozumiec jej miejsce w petli rozgrywki. To podzial koncepcyjny gry, a nie
+instrukcja przenoszenia plikow ani zatwierdzenie nowego zakresu produkcji.
+
+Podzial jest zgodny z kierunkiem projektu: fabularna gra RPG z walka w czasie
+rzeczywistym, rozwojem bohatera, gildia, miastem i wyprawami do lochow.
+Valdoria i gildia gracza sa poczatkowym zakresem swiata. Kolejne krainy,
+bogowie i rozbudowane watki moga byc dodawane etapami.
+
+RANKING AKTUALNEJ WERSJI
+-----------------------
+Ponizsze procenty to szacunkowa ocena stopnia zaimplementowania i
+funkcjonalnosci sekcji na podstawie obecnego kodu. Pierwotne oceny
+przeliczono przez 3; dwie nowe sekcje oceniono ta sama metoda. Skala wynosi
+od 0% do 33,33%; nie jest to pomiar FPS ani wynik pelnych testow gry.
+Ocena jest statyczna, dlatego przed wydaniem gry nalezy ja potwierdzic
+testami w uruchomionym Godot.
+
+Ranking od najlepiej rozwinietej sekcji:
+1. Sekcja 3 - Rozwoj postaci: 30%
+   Dzialaja XP, poziomy, punkty cech i rozbudowane drzewka talentow klas.
+   Do sprawdzenia pozostaje balans i zgodnosc wszystkich efektow w grze.
+2. Sekcja 2 - Bohater, klasy i role: 29,33%
+   Dostepnych jest wiele klas, a ich premie i umiejetnosci wplywaja na gre.
+   Przydaloby sie dalsze dopracowanie balansu oraz czytelnosci roznic klas.
+3. Sekcja 4 - Walka, umiejetnosci i efekty: 28%
+   Jest walka czasu rzeczywistego, unik, umiejetnosci, przeciwnicy,
+   sojusznicy i efekty trafien. Potrzebne sa testy balansu i sytuacji
+   brzegowych.
+4. Sekcja 1 - Rdzen gry, stan i zapis: 27,33%
+   Stan kampanii, walidacja oraz bezpieczniejszy zapis i odzyskiwanie sa
+   obslugiwane. Zgodnosc ze starszymi zapisami wymaga dalszej weryfikacji.
+5. Sekcja 7 - Lochy, eksploracja i wyprawy: 27,33%
+   Dzialaja generowanie pokoi, przeciwnicy, lup, schody i powrot z wyprawy.
+   Bossowie, pulapki i wieksza roznorodnosc lochow pozostaja do rozbudowy.
+6. Sekcja 5 - Ekwipunek, przedmioty i lup: 26,67%
+   Sa bronie, pancerze, mikstury, materialy, udzwig oraz podnoszenie
+   i zakladanie przedmiotow. Warto dodatkowo sprawdzic kazdy przypadek
+   uzycia i przenoszenia przedmiotow.
+7. Sekcja 8 - Gildia, druzyna i zlecenia: 25,67%
+   Gildia ma przestrzen do eksploracji, czlonkow druzyny, zlecenia
+   i zarzadzanie. Czesc opisanych systemow i dlugoterminowych celow
+   wymaga dalszego rozwoju.
+8. Sekcja 6 - Rzemioslo, warsztaty i gospodarka: 24%
+   Dzialaja przepisy dla klas rzemieslniczych, materialy, koszty i sklep.
+   Liczba receptur oraz dostepnych uslug jest nadal ograniczona.
+9. Sekcja 9 - Miasto, mieszkancy i miejsca uslug: 22,33%
+   Miasto mozna eksplorowac, a gildia, ratusz, warsztat i brama maja
+   interakcje. Pozostale miejsca i uslugi wymagaja pelniejszej obslugi.
+10. Sekcja 11 - Wyglad i oprawa wizualna: 11,67%
+    Sa grafiki lokacji, postaci i przedmiotow w stylistyce pixel art.
+    Animacje, efekty, spojnosci wizualnej i dopracowania oprawy nadal
+    potrzeba wiecej.
+11. Sekcja 10 - Fabula i swiat: 20%
+    Jest wstep fabularny i zarys Valdorii. Glowna fabula, rozbudowane
+    watki, bogowie i kolejne krainy sa jeszcze skromne lub niezaimplementowane.
+12. Sekcja 12 - Quality of Life (wygoda gracza): 18,33%
+    Interfejs pokazuje podstawowe informacje i podpowiedzi, ale ustawienia,
+    dostepnosc, personalizacja sterowania i dodatkowe ulatwienia wymagaja
+    dalszego rozwoju.
+
+ZASADA ORGANIZACJI
+------------------
+Kazda sekcja odpowiada na pytanie: "Jaka czesc gry i jakie zachowania gracza
+ta sekcja obsluguje?" Nie oznacza to, ze kazda musi byc osobna scena, folder
+lub pojedynczy skrypt. System moze laczyc sie z innymi sekcjami, ale powinien
+mieć jasno okreslona odpowiedzialnosc.
+
+
+1. RDZEN GRY, STAN I ZAPIS
+--------------------------
+Rola w grze:
+Rdzen jest zrodlem prawdy o trwalym stanie kampanii. Kazdy system moze
+odczytac potrzebne dane i poprosic o ich zmiane przez jasno okreslona
+operacje, ale nie powinien po cichu tworzyc drugiej, sprzecznej kopii
+postaci, ekwipunku albo postepu. Rdzen nie jest ekranem gry ani lokacja:
+nie steruje ruchem, nie rysuje UI i nie podejmuje za gracza decyzji
+fabularnych.
+
+Co znaczy "trwaly stan":
+To dane, ktore powinny przetrwac zmiane sceny, zamkniecie gry albo koniec
+wyprawy. Dane chwilowe, potrzebne tylko do aktualnej animacji lub walki,
+nie musza byc zapisywane, chyba ze projekt jawnie zdecyduje inaczej.
+
+ZAKRES DANYCH KAMPANII
+----------------------
+1. Bohater:
+   - wybrana klasa i podstawowe dane identyfikujace postac;
+   - poziom, XP, cechy, punkty do wydania i odblokowane talenty;
+   - aktualne oraz maksymalne HP, z rozdzieleniem wartosci bazowych i
+     bonusow wynikajacych z cech, klasy, talentow i wyposazenia;
+   - inne stale postepy postaci, gdy zostana dodane.
+
+2. Majatek i ekwipunek:
+   - zloto i inne waluty;
+   - zalozona bron i pancerz;
+   - zawartosc plecaka wraz z iloscia stosu, waga, typem i parametrami;
+   - materialy, mikstury, narzedzia oraz przedmioty unikalne;
+   - zasady ograniczen, takie jak udzwig, sloty i poprawne ilosci.
+
+3. Gildia i druzyna:
+   - czlonkowie, ich trwawe cechy, zycie i stan dostepnosci;
+   - sklad aktywnej druzyny, relacje oraz postep czlonkow;
+   - zakupione pokoje, ulepszenia, ranga, reputacja i zlecenia;
+   - stan nagrod: czy zlecenie jest dostepne, przyjete, ukonczone lub
+     odebrane.
+
+4. Swiat i fabula:
+   - dzien i inne stale liczniki czasu, jesli wplywaja na wydarzenia;
+   - odblokowane lokacje, uslugi i obszary;
+   - wazne decyzje, relacje, wykonane watki i jednorazowe wydarzenia;
+   - najlepszy wynik wyprawy lub inne rekordy, jesli gra je wykorzystuje.
+
+5. Dane aktualnej wyprawy:
+   - zapisuje sie tylko jesli projekt postanowi, ze wyprawe mozna wznowic
+     po zamknieciu gry;
+   - jesli wznowienie nie jest obslugiwane, rdzen powinien zapisac
+     jednoznaczny stan bezpieczenstwa: gracz jest poza lochiem, a rezultat
+     wyprawy zostal rozliczony najwyzej raz;
+   - nie wolno przypadkowo zapisywac czesci wyprawy tak, by po wczytaniu
+     mozna bylo ponownie odebrac te same nagrody.
+
+Zrodlo prawdy i granice:
+- Rdzen przechowuje stale dane i udostepnia operacje ich odczytu oraz zmiany.
+- System walki moze zglaszac otrzymane obrazenia, pokonanie wroga lub
+  zdobyte XP; nie powinien samodzielnie zapisywac alternatywnego poziomu.
+- Ekran ekwipunku prezentuje i zleca zmiany przedmiotow, ale reguly
+  udzwigu, dodawania i zdejmowania musza byc wspolne dla wszystkich ekranow.
+- Miasto i gildia zglaszaja zakupy, uslugi i interakcje przez wspolne
+  operacje; zmiana lokacji sama w sobie nie resetuje kampanii.
+- Wyliczane statystyki (np. atak po doliczeniu sprzetu) powinny byc
+  obliczane z danych bazowych i bonusow, zamiast utrzymywac kilka recznie
+  synchronizowanych wartosci.
+- Reguly konkretnych dziedzin pozostaja w ich sekcjach. Rdzen nie powinien
+  zawierac kodu rysowania mapy, logiki AI wroga ani ukladu okien.
+
+CYKL ZYCIA GRY
+--------------
+Nowa kampania:
+1. Ustaw stan startowy w jednym, przewidywalnym miejscu.
+2. Ustaw wymagane wartosci domyslne oraz puste kolekcje.
+3. Sprawdz, czy poczatkowa klasa i podstawowy ekwipunek sa poprawne.
+4. Zapisz nowa kampanie dopiero po ustaleniu jej kompletnego stanu.
+5. Pokaz graczowi czytelny rezultat rozpoczecia gry.
+
+Zmiana sceny:
+1. Lokacja konczy lub zatwierdza wykonywana operacje.
+2. Rdzen zachowuje zmienione trwale dane.
+3. Nowa scena odczytuje stan z rdzenia, zamiast zakladac wartosci lokalne
+   jako nadrzedne.
+4. Dane chwilowe lokacji sa inicjalizowane na nowo; dane kampanii nie.
+
+Zapis:
+1. Zapis wykonuje migawke kompletnego, spojnego stanu kampanii.
+2. Dane sa konwertowane do formatu, ktory da sie jednoznacznie odczytac.
+3. Zapis nie powinien pozostawiac pliku w stanie czesciowym, ktory wyglada
+   na poprawny, ale zawiera tylko czesc najnowszych danych.
+4. Bledy otwarcia, zapisu i walidacji musza byc jawne. Nie wolno udawac
+   sukcesu ani po cichu kasowac poprzedniego, dzialajacego zapisu.
+5. Automatyczny zapis powinien nastepowac po waznych, zatwierdzonych
+   zmianach, a nie w srodku operacji wieloetapowej.
+
+Wczytywanie:
+1. Odczytaj dane do tymczasowego obiektu; nie nadpisuj aktywnej kampanii
+   niezweryfikowanymi wartosciami.
+2. Sprawdz skladnie, wersje, typy, zakresy liczb i wymagane pola.
+3. Uzupelnij bezpieczne wartosci domyslne tylko dla brakujacych,
+   opcjonalnych pol.
+4. Odrzuc lub napraw wedlug jawnych regul wartosci niemozliwe, np.
+   nieznana klase, ujemna liczbe przedmiotow albo talent spoza drzewka.
+5. Zastosuj migracje starszej wersji, jesli taka migracja jest zdefiniowana.
+6. Dopiero po pomyslnej walidacji zatwierdz odtworzony stan jako aktywna
+   kampanie.
+7. Jesli plik jest uszkodzony lub nieobslugiwany, zachowaj go i przedstaw
+   czytelny blad oraz dostepne mozliwosci odzyskania.
+
+SPÓJNOSC I NIEZMIENNIKI
+-----------------------
+Niezmiennik to regula, ktora musi byc prawdziwa po kazdej zakonczonej
+operacji rdzenia:
+- poziom miesci sie w dozwolonym zakresie, a XP nie jest ujemne;
+- liczba punktow cech i talentow nie spada ponizej zera;
+- punkty talentow sa wydawane tylko raz i tylko na talent nalezacy do
+  aktualnej klasy, ktorego wymagania sa spelnione;
+- zloto i ilosci stosow przedmiotow nie sa ujemne;
+- przedmiot ma znany typ i komplet wymaganych danych dla tego typu;
+- zalozone przedmioty i plecak nie przekraczaja regul udzwigu lub slotow;
+- aktualne HP nie przekracza maksymalnego HP i nie jest nizsze od zera,
+  poza kontrolowanym stanem smierci;
+- unikalne nagrody i jednorazowe wydarzenia nie sa przyznawane ponownie
+  po zmianie sceny, wczytaniu lub ponowieniu interakcji;
+- pojedyncza operacja ekonomiczna nie moze pobrac oplaty bez przyznania
+  produktu ani wydac produktu bez pobrania naleznej oplaty;
+- kazda zmiana wyniku wyprawy jest rozliczana najwyzej jeden raz.
+
+OPERACJE, KTORYCH RDZEN POWINIEN PILNOWAC
+-----------------------------------------
+Operacje na stanie powinny miec jeden punkt wykonania i jawny wynik,
+na przyklad sukces albo powod odmowy:
+- dodanie lub odjecie zlota;
+- dodanie, zuzycie, zalozenie i zdjecie przedmiotu;
+- zdobycie XP i awans wraz z przyznaniem naleznych punktow;
+- wydanie punktu cechy lub talentu;
+- przyjecie i rozliczenie nagrody za zlecenie;
+- zakonczenie wyprawy, smierc i powrot do bezpiecznej lokacji;
+- migracja i zapis kampanii.
+
+Operacja wieloetapowa powinna byc atomowa z perspektywy gracza: albo
+wykonuje calosc, albo nie zmienia nic. Przy craftingu oznacza to, ze
+materialy i zloto sa pobierane dopiero wtedy, gdy wynik mozna dodac do
+ekwipunku. Przy nagrodzie oznacza to, ze stan "odebrano" i sama nagroda
+sa zatwierdzane razem.
+
+WERSJONOWANIE I ZGODNOSC ZAPISOW
+--------------------------------
+- Kazdy zapis zawiera jawny numer formatu niezalezny od wersji gry.
+- Zmiana struktury danych wymaga aktualizacji numeru formatu i migracji
+  z kazdej nadal wspieranej wersji.
+- Migracja dziala na kopii danych i zachowuje mozliwie najwiecej postepu.
+- Migracja nie powinna zgadywac nieodwracalnych decyzji. Jesli danych nie da
+  sie bezpiecznie odtworzyc, trzeba zachowac kopie i zglosic problem.
+- Migracje musza byc powtarzalne w testach i konczyc sie poprawnym,
+  zwalidowanym stanem obecnego formatu.
+- Test zgodnosci obejmuje rzeczywisty starszy zapis, nie tylko nowo
+  wygenerowane dane o starszym numerze wersji.
+
+BLAD, ODZYSKIWANIE I INFORMOWANIE GRACZA
+----------------------------------------
+Rdzen nie moze ukrywac bledow zapisu lub wczytywania pod komunikatem
+"zapisano". Przy problemie powinien:
+- zachowac poprzedni dobry zapis;
+- zapisac lub udostepnic diagnostyke techniczna bez ujawniania jej jako
+  niezrozumialnego komunikatu dla gracza;
+- pokazac krotki, zrozumialy komunikat o tym, co sie nie udalo;
+- nie uruchamiac nowej kampanii automatycznie w miejsce uszkodzonej;
+- zaoferowac odzyskanie kopii zapasowej, jesli taka jest dostepna;
+- nie powtarzac nagrod ani kosztow podczas ponawiania operacji.
+
+INTERFEJS RDZENIA
+-----------------
+Pozostale systemy powinny korzystac z malych, nazwanych operacji zamiast
+bezposrednio zmieniac dowolne pola bez walidacji. Interfejs ma:
+- wyraznie rozdzielac odczyt danych od ich zmiany;
+- zwracac wynik operacji i powod odmowy, jesli operacja nie moze sie udac;
+- emitowac powiadomienia o istotnych zmianach, jesli UI musi sie odswiezyc;
+- nie wymagac od wywolujacego znajomosci szczegolow formatu pliku;
+- unikac zaleznosci rdzenia od scen i ekranow konkretnych lokacji.
+
+Nie oznacza to koniecznosci tworzenia rozbudowanego frameworka. Wspolne
+reguly nalezy wyciagac wtedy, gdy faktycznie korzysta z nich kilka systemow.
+
+BEZPIECZENSTWO I ODPORNOSC
+--------------------------
+- Traktuj dane wczytane z pliku jako niezaufane: sprawdzaj typy, zakresy
+  i dozwolone identyfikatory.
+- Nie wykonuj kodu ani sciezek plikow dostarczonych w danych zapisu.
+- Nie dopisuj do zapisu sekretow, tokenow ani danych, ktore nie sa
+  potrzebne do odtworzenia kampanii.
+- Ogranicz rozmiar i glebokosc danych, ktore moga zostac wczytane.
+- Komunikaty o bledach nie powinny niszczyc ani ujawniac zawartosci zapisu.
+
+TESTY I KRYTERIA AKCEPTACJI
+--------------------------
+Rdzen mozna uznac za gotowy do wspierania kolejnych systemow, gdy przechodza
+co najmniej ponizsze scenariusze:
+
+1. Nowa gra:
+   Rozpoczecie kampanii tworzy poprawny stan startowy z pustymi lub
+   prawidlowo uzupelnionymi kolekcjami.
+
+2. Zapis i odczyt:
+   Po zmianie klasy, XP, cech, zlota, sprzetu i czlonkow gildii zapis i
+   ponowne wczytanie przywracaja te same wartosci.
+
+3. Zmiana lokacji:
+   Przejscie gildia → miasto → loch → miasto nie resetuje postaci ani nie
+   kopiuje starej wersji ekwipunku nad nowsza.
+
+4. Awans:
+   Przyznanie XP, przekroczenie jednego lub wielu progow i nagrody za awans
+   sa naliczane dokladnie raz, rowniez po zapisie w poblizu awansu.
+
+5. Granice wartosci:
+   Brakujace, bledne, ujemne i skrajnie duze wartosci nie powoduja
+   zawieszenia ani nie tworza niepoprawnej postaci.
+
+6. Stary format:
+   Wspierany zapis poprzedniej wersji zostaje zmigrowany, zachowujac
+   postac, ekwipunek, gildie oraz mozliwie najwiecej postepu.
+
+7. Uszkodzony zapis:
+   Gra informuje o problemie, nie nadpisuje bez pytania jedynej kopii
+   i nie tworzy pozornego sukcesu.
+
+8. Operacja ekonomiczna:
+   Brak miejsca lub materialow nie pobiera zlota i nie zuzywa czesci
+   skladnikow.
+
+9. Nagroda jednorazowa:
+   Ponowienie interakcji, zmiana sceny lub odczyt zapisu nie przyznaje
+   drugi raz tej samej nagrody.
+
+10. Stan po smierci:
+    Reguly smierci i rozliczenia wyprawy sa zastosowane jednokrotnie,
+    a powrot do miasta daje stan zgodny z zalozeniami gry.
+
+Powiazania z pozostalymi sekcjami:
+Rdzen jest wspolnym fundamentem wszystkich pozostalych sekcji. Sekcja 2
+dostarcza dane o klasie, sekcja 3 o progresji, sekcja 4 o skutkach walki,
+sekcja 5 o przedmiotach, sekcja 6 o transakcjach, sekcja 7 o wyniku wyprawy,
+sekcja 8 o gildii i druzynie, sekcja 9 o uslugach miejskich, sekcja 10
+o fabule, sekcja 11 o prezentacji wizualnej, a sekcja 12 o wygodzie
+i czytelnosci interfejsu.
+
+Kryterium gotowosci:
+Kazda trwala zmiana ma jednoznacznego wlasciciela, przechodzi walidacje,
+zapisuje sie i odtwarza bez utraty ani podwojenia postepu. Bledy sa
+widoczne, stary zapis jest obslugiwany wedlug jawnych regul, a pozostale
+sekcje nie musza wiedziec, jak dane sa fizycznie zapisywane na dysku.
+
+
+2. BOHATER, KLASY I ROLE
+------------------------
+Cel:
+Okreslenie, kim jest postac gracza, jak walczy i czym rozni sie od innych
+klas.
+
+Zakres:
+- wybor jednej z klas: Wojownik, Rycerz, Mag, Kaplan, Lowca, Inzynier,
+  Kowal lub Alchemik;
+- rola klasy, opis stylu gry, pasywna cecha oraz glowna umiejetnosc;
+- bazowe wartosci postaci i zwiazek klasy z atakiem, obrona, ruchem,
+  leczeniem albo rzemioslem;
+- klasy bojowe: specjalizacja w ataku, ochronie, magii, leczeniu lub walce
+  dystansowej;
+- klasy rzemieslnicze: zdolnosc samodzielnego wytwarzania i wykorzystywania
+  narzedzi oraz przedmiotow;
+- czytelne informacje w interfejsie, aby gracz rozumial mocne strony klasy.
+
+Zalozenia klas rzemieslniczych:
+Kowal koncentruje sie na sprzecie i jego wzmacnianiu. Inzynier przygotowuje
+bomby i narzedzia bojowe. Alchemik wytwarza mikstury i kwasy. Rzemioslo ma
+uzupelniac walke, a nie zastepowac ja osobnym, oderwanym minigame'em.
+
+Granica odpowiedzialnosci:
+Ta sekcja definiuje tozsamosc klasy. Szczegolowe rozliczanie obrazen nalezy
+do walki, zdobywanie talentow do progresji, a receptury i zuzycie materialow
+do rzemiosla.
+
+Kryterium dzialania:
+Wybor innej klasy zmienia zachowanie postaci w praktyce, a nie tylko nazwe
+widoczna w menu.
+
+
+3. ROZWOJ POSTACI: XP, POZIOMY, CECHY I TALENTY
+-----------------------------------------------
+Cel:
+Zapewnienie dlugoterminowego rozwoju bohatera i mozliwosci tworzenia
+odmiennych konfiguracji tej samej klasy.
+
+Zakres:
+- doswiadczenie za pokonywanie wrogow i inne przewidziane dzialania;
+- progi kolejnych poziomow i limit poziomu;
+- nagrody za awans, w tym punkty cech i wzrost przezywalnosci;
+- cechy bohatera, takie jak Sila, Wytrzymalosc i Zrecznosc;
+- osobne drzewko talentow dla kazdej klasy;
+- wymagania wstepne, rozgalezienia, dostepne wezly i talenty koncowe;
+- zapis wydanych punktow i zachowanie postepu po wczytaniu gry;
+- jasna prezentacja aktualnego XP, kolejnego progu i dostepnych punktow.
+
+Zasada projektowa:
+Rozwoj powinien dawac graczowi realny wybor. Talenty maja wzmacniac rozne
+strony klasy i wspolpracowac z jej umiejetnosciami. Opis talentu musi
+odpowiadac efektowi, ktory rzeczywiscie dziala w grze.
+
+Powiazania:
+Wrogowie dostarczaja XP, system stanu przechowuje postep, a walka, rzemioslo
+i ekwipunek odczytuja odblokowane premie.
+
+Kryterium dzialania:
+Awans daje prawidlowe nagrody, a wydanie talentu widocznie zmienia rozgrywke
+bez przyznawania punktow wiecej niz raz.
+
+
+4. WALKA, UMIEJETNOSCI I EFEKTY
+-------------------------------
+Cel:
+Obsluga bezposredniej, czytelnej walki w czasie rzeczywistym.
+
+Zakres:
+- sterowanie ruchem, kierunkiem patrzenia, atakiem podstawowym i unikiem;
+- umiejetnosci klasowe i ich czas odnowienia;
+- wykrywanie zasiegu i celu ataku;
+- obrazenia gracza, wrogow oraz sojusznikow;
+- obrona, chwilowa nietykalnosc, odrzut i ochrona zapewniana umiejetnosciami;
+- efekty statusu, miedzy innymi podpalenie, oznaczenie, spowolnienie i trucizna;
+- efekty wizualne i komunikaty pozwalajace rozpoznac trafienie, leczenie
+  i zagrozenie;
+- wykorzystanie talentow, sprzetu i narzedzi rzemieslniczych w starciu.
+
+Zasada projektowa:
+Walka powinna dawac sie zrozumiec bez czytania kodu: zasieg, czas odnowienia,
+trafienie i skutek powinny byc widoczne. Klasy maja zachowac wlasny charakter,
+a premie nie powinny przypadkowo nakladac sie w niekontrolowany sposob.
+
+Powiazania:
+Walka korzysta z klasy, statystyk, ekwipunku i talentow. Po pokonaniu wroga
+przekazuje nagrody systemowi postepu i ekwipunkowi.
+
+Kryterium dzialania:
+Podstawowe akcje sa responsywne, umiejetnosci dzialaja zgodnie z opisem,
+a efekty okresowe i redukcje obrazen nie naliczaja sie blednie.
+
+
+5. EKWIPUNEK, PRZEDMIOTY I LUP
+------------------------------
+Cel:
+Zarzadzanie przedmiotami znalezionymi, kupionymi lub wytworzonymi oraz ich
+praktycznym zastosowaniem podczas wypraw.
+
+Zakres:
+- sloty na bron i pancerz oraz plecak;
+- statystyki przedmiotow: atak, obrona, leczenie, waga i typ;
+- udzwig i laczna waga przedmiotow;
+- mikstury, materialy, bron, zbroje i narzedzia;
+- podnoszenie lupow, automatyczne zbieranie wybranych przedmiotow oraz
+  wyrzucanie rzeczy;
+- zakladanie i zdejmowanie sprzetu;
+- uzywanie mikstur i narzedzi w odpowiednim kontekscie;
+- prezentacja porownania przedmiotow i czytelne komunikaty o braku miejsca.
+
+Zasada projektowa:
+Ekwipunek ma wspierac wyprawe i decyzje o przygotowaniu postaci. Przedmiot
+musi zachowac typ i parametry podczas przenoszenia, zapisu, wczytywania
+i uzywania.
+
+Powiazania:
+Loch generuje lupy, walka zuzywa mikstury i narzedzia, a miasto oraz rzemioslo
+zapewniaja zakup i wytwarzanie przedmiotow.
+
+Kryterium dzialania:
+Waga jest liczona spojnie, przedmioty nie znikaja bez powodu, a ekwipunek
+pokazuje graczowi, dlaczego nie moze czegos zabrac lub uzyc.
+
+
+6. RZEMIOSLO, WARSZTATY I GOSPODARKA
+------------------------------------
+Cel:
+Zapewnienie klasom rzemieslniczym konkretnych narzedzi rozwoju oraz
+powiazanie materialow zdobywanych w lochu z przygotowaniem do kolejnych
+wypraw.
+
+Zakres:
+- przepisy i produkty Kowala, Inzyniera oraz Alchemika;
+- wymagane materialy, koszty zlota i sprawdzanie udzwigu;
+- zuzywanie materialow i dodawanie produktu do ekwipunku;
+- bron, pancerz, mikstury, bomby i kwasy;
+- ulepszenia receptur wynikajace z talentow klasy;
+- sklep i zakup podstawowych przedmiotow;
+- zloto zdobywane za pokonanych wrogow i wydawane na uslugi lub rozbudowe;
+- czytelny komunikat o brakujacym zlocie, materialach albo miejscu.
+
+Zasada projektowa:
+Rzemioslo klasowe ma byc uzyteczne w petli gry. Materialy z wypraw powinny
+miec jasne zastosowanie, a receptura powinna pokazywac koszt i rezultat
+przed zatwierdzeniem craftingu.
+
+Powiazania:
+Loch dostarcza surowce, ekwipunek przechowuje skladniki, miasto udostepnia
+warsztat, a talenty rzemieslnicze poprawiaja ceny lub produkty.
+
+Kryterium dzialania:
+Crafting nie pobiera zasobow, jesli nie mozna wykonac receptury, i nie
+powoduje utraty skladnikow przy nieudanym dodaniu produktu do ekwipunku.
+
+
+7. LOCHY, EKSPLORACJA I WYPRAWY
+-------------------------------
+Cel:
+Tworzenie powtarzalnego, ale zmiennego wyzwania, w ktorym gracz zdobywa
+doswiadczenie, zloto i materialy, ryzykujac utrate postepu wyprawy.
+
+Zakres:
+- generowanie pokoi, przejsc, drzwi i schodow;
+- poruszanie sie po lochu i interakcje z przejsciami;
+- kolejne pietra, rosnace zagrozenie oraz nagrody;
+- rozmieszczenie wrogow i lupow;
+- przygotowanie i zachowanie czlonkow druzyny w wyprawie;
+- warunki oczyszczenia pokoju i odblokowania drogi dalej;
+- powrot do miasta, koniec wyprawy i konsekwencje porazki;
+- roznorodne tematy, przeciwnicy, puapki, sekrety i bossowie jako kierunek
+  rozbudowy swiata.
+
+Zasada projektowa:
+Wyprawa powinna miec czytelny rytm: przygotowanie, eksploracja, walka,
+zdobywanie zasobow i decyzja, czy isc dalej, czy wracac. Nowa zawartosc
+lochu powinna roznic sie mechanicznie, a nie tylko wygladem.
+
+Powiazania:
+Loch korzysta z walki, AI, ekwipunku i statystyk postaci. Jego wyniki
+aktualizuja postep, stan gildii i zasoby gry.
+
+Kryterium dzialania:
+Pokoj, przejscia i schody pozostaja spojne; nagroda jest przyznawana raz,
+a zakonczenie wyprawy rozlicza jej skutki w przewidywalny sposob.
+
+
+8. GILDIA, DRUZYNA I ZLECENIA
+-----------------------------
+Cel:
+Byc baza bohatera i glownym miejscem zarzadzania jego organizacja,
+czlonkami oraz dlugoterminowymi celami.
+
+Zakres:
+- gildia jako fizyczne pomieszczenie, po ktorym bohater moze sie poruszac;
+- pokoje i elementy bazy oraz ich odblokowywanie lub rozbudowa;
+- lista czlonkow gildii, ich stan, cechy i udzial w druzynie;
+- rekrutacja, zarzadzanie skladem i przygotowanie do wypraw;
+- zlecenia, nagrody i postep ich realizacji;
+- rangi gildii i dostep do bardziej wymagajacych aktywnosci jako kierunek
+  dalszej rozbudowy;
+- odpoczynek, planowanie i dostep do systemow bohatera;
+- skutki smierci czlonkow druzyny zgodnie z ustalonymi zasadami gry.
+
+Zasada projektowa:
+Gildia ma byc miejscem, a nie tylko menu. Interakcje z jej funkcjami powinny
+wynikac z podejscia do odpowiedniego miejsca lub obiektu.
+
+Powiazania:
+Gildia korzysta z zasobow rdzenia gry, udostepnia rozwoj, sklad druzyny
+i zlecenia, a wyprawy aktualizuja jej czlonkow i postep.
+
+Kryterium dzialania:
+Zmiana sklady druzyny jest widoczna w przygotowaniu do nastepnego lochu,
+a zadania i nagrody nie sa zaliczane wielokrotnie.
+
+
+9. MIASTO, MIESZKANCY I MIEJSCA USLUG
+-------------------------------------
+Cel:
+Zapewnienie bezpiecznej, zywej przestrzeni pomiedzy wyprawami oraz dostepu
+do uslug i wydarzen.
+
+Zakres:
+- miasto jako obszar do eksploracji, z ruchem bohatera i kamera;
+- polaczenie miasta z gildia i wejsciem do lochu;
+- punkty uslugowe jako osobne miejsca o wlasnych funkcjach;
+- kowal i warsztat, ratusz, karczma, kaplica, stajnia oraz domy mieszkalne;
+- NPC, mieszkancy, rozmowy i komunikaty kontekstowe;
+- zakupy, uslugi, odpoczynek i inne interakcje wynikajace z danego miejsca;
+- minimapa, oznaczenia punktow zainteresowania i wskazowki sterowania;
+- rozbudowa miasta oraz kolejne dzielnice jako mozliwy przyszly zakres.
+
+Zasada projektowa:
+Miasto ma byc przestrzenia, po ktorej sie chodzi, a nie pojedynczym ekranem
+wyboru. Kazde miejsce powinno miec czytelna funkcje, charakter wizualny
+i logiczne polaczenie z petla gry.
+
+Powiazania:
+Miasto wykorzystuje ekwipunek, zloto i stan bohatera. Warsztaty lacza sie
+z rzemioslem, a wydarzenia i mieszkancy moga laczyc sie z fabula oraz
+relacjami.
+
+Kryterium dzialania:
+Gracz potrafi odnalezc uslugi, wejsc w interakcje z miejscem i zrozumiec,
+co moze tam zrobic oraz jaki bedzie koszt.
+
+
+10. FABULA I SWIAT
+------------------
+Cel:
+Nadanie rozgrywce kontekstu i celu. Swiat tlumaczy, kim jest bohater,
+dlaczego podejmuje wyprawy i jakie konsekwencje maja jego decyzje.
+
+FABULA I SWIAT:
+- historia bohatera, jego dawny mentor i poczatek w Valdorii;
+- gildie, miasta, krainy, konflikty i postacie niezalezne;
+- siedmiu glownych bogow oraz ich wlasne cele i relacje ze smiertelnikami;
+- decyzje gracza, ktore moga zmieniac relacje, wydarzenia lub dostepne
+  mozliwosci;
+- opisy lochow, przedmiotow, zlecen i miejsc, ktore lacza mechanike ze
+  swiatem przedstawionym;
+- stopniowe rozszerzanie mapy poza obszar startowy.
+
+Zasada projektowa:
+Fabula i swiat wspieraja rozgrywke, ale nie powinny blokowac podstawowej
+petli gry. Decyzje fabularne powinny miec zrozumiale konsekwencje, a opisy
+pozostawac spojne z rzeczywistym dzialaniem mechanik.
+
+Powiazania:
+Wydarzenia i postacie moga wplywac na gildie, miasto, relacje, zlecenia
+i wyprawy. Ta sekcja laczy sie z pozostala jedenastka sekcji.
+
+Kryterium dzialania:
+Gracz rozumie motywacje bohatera, rozpoznaje wazne postacie i widzi zwiazek
+miedzy wydarzeniami fabularnymi a celami rozgrywki.
+
+
+11. WYGLAD I OPRAWA WIZUALNA
+-----------------------------
+Cel:
+Zapewnienie grze spojnego, czytelnego i rozpoznawalnego wygladu, ktory
+pomaga odczytywac lokacje, postacie, zagrozenia i interakcje.
+
+Zakres:
+- kierunek artystyczny, paleta kolorow i stylistyka pixel art;
+- wyglad Valdorii, gildii, miasta, lochow i miejsc uslug;
+- sylwetki oraz animacje bohatera, sojusznikow, mieszkancow i wrogow;
+- wyglad przedmiotow, elementow otoczenia, efektow umiejetnosci i walki;
+- czytelnosc kontrastu, przeszkod, przejsc, lupow i elementow interaktywnych;
+- spojne skalowanie, filtrowanie tekstur i rozmieszczenie elementow obrazu;
+- efekty wizualne trafien, obrazen, leczenia, awansu i innych waznych akcji.
+
+Zasada projektowa:
+Oprawa ma wspierac czytelnosc rozgrywki. Efekty nie powinny zaslaniac
+zagrozen ani informacji, a lokacje powinny byc rozpoznawalne bez utraty
+spojnosci calego swiata.
+
+Powiazania:
+Wyglad prezentuje zawartosc wszystkich pozostalych sekcji. Animacje i efekty
+musza odpowiadac zdarzeniom walki, umiejetnosciom oraz interakcjom.
+
+Kryterium dzialania:
+Gracz potrafi odroznic postacie, przeciwnikow, przedmioty i elementy
+interaktywne, a lokacje i efekty tworza spojna oprawe wizualna.
+
+
+12. QUALITY OF LIFE (WYGODA GRACZA)
+-----------------------------------
+Cel:
+Ograniczenie niepotrzebnego tarcia w obsludze gry i ulatwienie graczowi
+zrozumienia stanu postaci, dostepnych dzialan oraz konsekwencji wyborow.
+
+Zakres:
+- HUD walki, zdrowia, poziomu, XP, zlota i aktywnych komunikatow;
+- okna ekwipunku, systemu rozwoju, drzewek talentow, czlonkow i zlecen;
+- informacje o sterowaniu i kontekstowe podpowiedzi;
+- jasne komunikaty o bledach, kosztach, nagrodach, zapisie i braku zasobow;
+- wygodne zarzadzanie ekwipunkiem, druzyna, zleceniami i rozwojem postaci;
+- ustawienia dzwieku, obrazu i sterowania oraz opcje dostepnosci;
+- mozliwosc dostosowania czytelnosci, tempa i informacji do potrzeb gracza;
+- ograniczanie powtarzalnych czynnosci bez usuwania istotnych decyzji.
+
+Zasada projektowa:
+Ulatwienia maja oszczedzac czas i wyjasniac stan gry, a nie podejmowac za
+gracza wazne decyzje. Bledy i skutki operacji powinny byc komunikowane jasno.
+
+Powiazania:
+Ta sekcja udostepnia informacje i opcje obslugi pozostalych jedenastu
+sekcji. Jej elementy nie powinny zmieniac regul rozgrywki w niejawny sposob.
+
+Kryterium dzialania:
+Gracz potrafi odczytac najwazniejsze informacje, znalezc potrzebne funkcje
+i zrozumiec rezultat swojej akcji bez zbednego zgadywania.
+
+
+PETLA GRY LACZACA 12 SEKCJI
+----------------------------
+1. Bohater wraca do gildii lub miasta i sprawdza swoj stan, zasoby oraz cele.
+2. Przygotowuje druzyne, ekwipunek, mikstury i narzedzia rzemieslnicze.
+3. Wyrusza do lochu i eksploruje kolejne pokoje.
+4. Walczy, korzysta z umiejetnosci i zdobywa lup, zloto, materialy oraz XP.
+5. Podejmuje decyzje o dalszej eksploracji lub powrocie.
+6. Po powrocie rozwija postac, wykorzystuje materialy i odbiera nagrody.
+7. Gildia, miasto, relacje lub fabula daja kolejny powod do wyprawy.
+
+KIERUNEK PRACY
+--------------
+Ten podzial pomaga planowac i porzadkowac funkcje gry, ale sam w sobie nie
+oznacza, ze wszystkie opisane funkcje juz istnieja. Przy dalszej pracy
+nalezy rozrozniac:
+- dzialajace funkcje obecnej wersji;
+- elementy zaplanowane, ale jeszcze niezaimplementowane;
+- pomysly na przyszle rozszerzenia.
+
+Najpierw warto doprowadzac do stabilnego, grywalnego stanu kolejne elementy
+podstawowej petli: bohater i progresja, walka, ekwipunek, loch, powrot,
+gildia i miasto. Nowe krainy, rozbudowane watki bogow i duze systemy poboczne
+powinny dochodzic etapami, bez rozmywania zakresu wersji startowej.

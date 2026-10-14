@@ -1,0 +1,7 @@
+Wygeneruj sprite małej kaplicy fantasy do gry 2D pixel art. Widok z góry w lekkim rzucie 3/4; fasada, schodki i wejście skierowane do dołu obrazu. Jasny kamienny budynek z niebieskoszarym dachem, niewielką wieżyczką, prostym złotym symbolem słońca nad drzwiami i dwoma wysokimi, kolorowymi oknami. Symbol ma być obrazkiem, nie literą.
+
+Pojedynczy kompletny budynek na przezroczystym tle, pole 208 × 192 px i co najmniej 8 px marginesu. Bez krajobrazu, ludzi, drzew, drogi, tekstu, napisów, ramki i elementów tła. Budynek ma być czytelny z góry i pasować do mapy miasta.
+
+2D pixel art, mocny pikselowy kontur 1 px, ograniczona paleta kolorów, czytelne kamienne bloki i dachówki, subtelne złote akcenty. Bez antyaliasingu, rozmycia i gradientów. Ręcznie rysowany styl identyczny z pozostałymi budynkami Valdorii.
+
+NEGATIVE: 3D, realizm, izometryczny render, perspektywa z poziomu ulicy, tło, pełna scena, tekst, logo, watermark, miękkie rozmyte krawędzie.

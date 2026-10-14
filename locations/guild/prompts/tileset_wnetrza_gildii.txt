@@ -1,0 +1,49 @@
+Stworz modularny atlas kafelkow podlogi i scian do tej samej gry 2D fantasy pixel art co atlas mebli gildii.
+
+PERSPEKTYWA I STYL
+- Scisly top-down, widok z gory pod katem 90 stopni. Kamera prostopadle nad pokojem.
+- Ten sam styl i gestość pikseli co w atlasie mebli: reczny pixel art, ostre kwadratowe piksele, ciemny obrys 1-2 px, ograniczona paleta cieplych brazow drewna i chlodnej szarosci kamienia.
+- Oswietlenie od gory z lewej. Subtelne zuzycie starego budynku, ale czytelne wzory bez nadmiernego szumu.
+- Bez antyaliasingu, rozmycia, gradientow, fotograficznych tekstur ani efektu renderu 3D.
+
+ARKUSZ
+- Dokladnie 8 kolumn x 6 wierszy.
+- Kazdy kafelek ma dokladnie 48 x 48 px; caly obraz ma 384 x 288 px.
+- Bez marginesow, ramek, odstepow, cieni poza kafelkiem, numerow i podpisow.
+- Kazdy kafelek ma dokladnie 48 px i nadaje sie do bezposredniego wyciecia jako komorka atlasu.
+- Tla obszarow podlogi sa nieprzezroczyste i zaprojektowane do laczenia krawedz-w-krawedz. Nie rysuj szczelin ani ramek atlasu miedzy komorkami.
+- Zachowaj kolejnosc od lewej do prawej, wierszami od gory.
+
+ZAWARTOSC KOMOREK
+Wiersz 1 — warianty podlogi z desek:
+8 kafelkow ciemnej, starej podlogi z szerokich drewnianych desek widzianych z gory. Deski maja przebieg poziomy, spojne krawedzie i delikatnie rozne uklady sladow drewna. Kazdy z 8 kafelkow musi laczyc sie bez widocznych szwow z sasiednim kafelkiem tego samego wiersza.
+
+Wiersz 2 — kolejne warianty podlogi z desek:
+8 kafelkow tej samej podlogi i tej samej palety. Kontynuuj rozne polozenie laczen desek, subtelne slady zuzycia i pojedyncze male gwozdzie. Bez obiektow, plam, mocnych kontrastow ani powtarzalnych duzych znakow.
+
+Wiersz 3 — modularne sciany:
+Kolumny 1-4: proste fragmenty sciany w czterech kierunkach — gora, dol, lewo, prawo. Widok z gory, kamienna podstawa i ciemniejszy brzeg po stronie wnetrza.
+Kolumny 5-8: cztery narozniki scian — gorny lewy, gorny prawy, dolny lewy, dolny prawy. Krawedzie pasuja do prostych fragmentow z kolumn 1-4.
+
+Wiersz 4 — przejscia i detale scian:
+Kolumny 1-2: dwa warianty fragmentu sciany z oknem, widziane z gory.
+Kolumny 3-4: fragment sciany z otwartym przejsciem, bez drzwi blokujacych swiatlo.
+Kolumny 5-6: fragment sciany z zamknietymi drewnianymi drzwiami, widok z gory.
+Kolumny 7-8: kamienne filary narozne w dwoch wariantach.
+
+Wiersz 5 — podloga dekoracyjna:
+Kolumny 1-4: cztery kafelki bordowego dywanu z prostym zloto-bezowym obramowaniem. Brzegi lacza sie w jeden prostokat 2x2.
+Kolumny 5-8: cztery kafelki podlogi z subtelnym, starym ornamentem kamiennym, kazdy nadaje sie do powtarzania bez ostrego polaczenia.
+
+Wiersz 6 — zuzyte warianty podlogi:
+8 spokojnych kafelkow drewnianej podlogi pasujacych kolorem do wierszy 1-2, z bardzo subtelnymi rysami i roznymi laczeniami desek. Zachowaj mozliwosc laczenia bez widocznej kratki.
+
+WAZNE
+- To kafelki poziomej podlogi i elementy scian widziane z gory, a nie miniaturowe izometryczne pomieszczenia.
+- Kazda komorka atlasu zawiera tylko zawartosc opisana dla swojego miejsca.
+- Wszystkie elementy maja ta sama skale pikseli, kontur i oswietlenie.
+- Sciany maja byc czytelne jako przeszkody na krawedziach pokoju; kafelki podlogi maja byc neutralnym tla pod postacie i meble.
+- Bez liter, herbów, napisow, postaci, mebli, broni, ognia, dekoracji otoczenia i dodatkowych kafelkow.
+
+NEGATIVE PROMPT
+isometric, 3/4 view, side view, angled camera, 3D render, perspective room, anti-aliasing, blur, gradients, photorealism, black gaps between atlas cells, grid lines, borders, labels, numbers, text, watermark, characters, furniture, icons, objects crossing cell boundaries, non-seamless floor tiles

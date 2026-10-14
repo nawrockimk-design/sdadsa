@@ -1,0 +1,7 @@
+Wygeneruj pojedynczy sprite budynku mieszkalnego do gry fantasy 2D pixel art, widok z góry w lekkim rzucie 3/4, tak aby można go było umieścić na mapie miasta oglądanej z góry. Średniowieczny dom z drewniano-kamiennymi ścianami, czerwono-brązowym dwuspadowym dachem, widocznym wejściem od dołu, dwoma małymi oknami i kominem. Czytelny obrys i kształt dachu.
+
+Grafika ma być elementem do użycia w grze, nie makietą ani planszą koncepcyjną. Rozmiar obszaru grafiki 192 × 160 px, budynek wyśrodkowany z przezroczystym marginesem co najmniej 8 px. Kierunek przodu budynku to dół obrazu. Bez otoczenia, dróg, drzew, podpisów, ludzi i cienia wykraczającego poza sylwetkę. Przygotuj trzy warianty tego samego domu na jednym arkuszu, każdy we własnym polu 192 × 160 px, bez przenikania grafik.
+
+2D pixel art, wyraźne piksele, ograniczona paleta około 24 kolorów, widoczna tekstura desek i dachówek, ciemny obrys 1 px, subtelne ręcznie rysowane światło z góry z lewej. Bez antyaliasingu, rozmycia i gradientów. Przezroczyste tło. Spójność ze średniowiecznym miastem Valdoria.
+
+NEGATIVE: 3D, izometryczny render, realistyczna fotografia, gładkie krawędzie, tło, teren, makieta, tekst, logo, watermark, perspektywa z poziomu ulicy.

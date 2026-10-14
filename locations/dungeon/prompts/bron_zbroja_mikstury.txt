@@ -1,0 +1,7 @@
+Wygeneruj arkusz ikon przedmiotów do gry RPG fantasy 2D pixel art. Widok z góry / lekko ukośny, pojedynczy przedmiot na przezroczystym tle. Siatka 4 kolumny × 3 wiersze, komórki 48 × 48 px, cały obraz 192 × 144 px. W kolejności pokaż: żelazny miecz, drewnianą tarczę, skórzaną zbroję, stalowy hełm, łuk, strzały, kostur maga, księgę zaklęć, czerwoną miksturę zdrowia, niebieską miksturę many, sakiewkę złota i klucz do lochu.
+
+Każdy przedmiot mieści się w jednej komórce z marginesem minimum 4 px. Nie dodawaj podpisów, cyfr, tła, ramek ani dodatkowych przedmiotów. Każda ikona ma odmienny kształt i być czytelna przy wielkości 48 px.
+
+Crisp 2D pixel art, twarde krawędzie, ograniczona paleta, obrys 1 px, błysk metalu z małą liczbą jasnych pikseli. Bez antyaliasingu, rozmycia, gradientów i 3D. Zachowaj spójny styl i kierunek światła z góry z lewej.
+
+NEGATIVE: 3D, realistyczny render, gładkie krawędzie, tło, cienie poza ikoną, tekst, nazwy przedmiotów, watermark, nierówna siatka.

@@ -1,0 +1,7 @@
+Wygeneruj arkusz ikon interfejsu do gry RPG fantasy 2D pixel art. 16 osobnych ikon w siatce 4 × 4; każda komórka dokładnie 32 × 32 px, cały obraz 128 × 128 px, przezroczyste tło. Ikony w kolejności: serce/HP, złoto, doświadczenie, siła, wytrzymałość, zręczność, zadanie, mapa, członkowie gildii, ranga, ekwipunek, sklep kowala, odpoczynek, drzwi/wyjście, ostrzeżenie, ustawienia.
+
+Każda ikona ma prosty, unikalny piktogram pośrodku, widoczny przy 32 px. Nie dodawaj liter, cyfr, tekstu, przycisków, ramek wokół planszy, tła ani cieni poza ikoną. Zachowaj podobną grubość obrysu i kontrast dla wszystkich symboli.
+
+Ręcznie rysowany 2D pixel art, wyraźna siatka pikseli, maksymalnie 12 kolorów na ikonę, obrys 1 px, bez antyaliasingu, rozmycia, gradientów i wektorowego wygładzania. Kolory pasujące do fantasy UI: stare złoto, kość słoniowa, przygaszony błękit i czerwień.
+
+NEGATIVE: 3D, realizm, litery, napisy, watermark, tło, gradienty, antyaliasing, cienkie nieczytelne symbole, nierówne komórki.

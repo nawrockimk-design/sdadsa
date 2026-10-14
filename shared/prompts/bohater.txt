@@ -1,0 +1,7 @@
+Wygeneruj sprite sheet głównego bohatera do gry RPG 2D pixel art. Widok z góry w lekkim rzucie 3/4, pasujący do gry fantasy. Postać młoda, początkujący poszukiwacz przygód po trudnych przejściach; czytelna sylwetka, krótki ciemny płaszcz, skórzany pas i mały plecak. Nie dodawaj tekstu, interfejsu, cieni rzucanych na tło ani otoczenia.
+
+Arkusz ma mieć dokładnie 4 kolumny × 4 wiersze. Każda klatka ma mieć dokładnie 48 × 48 pikseli, cały obraz 192 × 192 px. Wiersze kolejno: dół, lewo, prawo, góra. Kolumny: cztery klatki krótkiego cyklu chodu, z wyraźnie różnymi pozycjami nóg i rąk. Bohater zajmuje około 24 × 34 px na klatkę, stoi centralnie, bez uciętych pikseli. Zachowaj identyczny rozmiar, położenie, ubranie i proporcje we wszystkich klatkach.
+
+Prawdziwy pixel art: twarde krawędzie, widoczne pojedyncze piksele, ograniczona paleta około 20 kolorów, konsekwentny ciemny obrys 1 px, bez antyaliasingu, rozmycia, gradientów i wygładzania. Przezroczyste tło. Każda klatka idealnie wyrównana do siatki, równe odstępy zerowe, bez ramek i bez dodatkowych elementów. Styl spójny z ręcznie robioną, lekko mroczną grą fantasy 2D.
+
+NEGATIVE: 3D, izometria, realistyczne zdjęcie, gładka grafika wektorowa, antyaliasing, miękkie cienie, tło, plansza prezentacyjna, napisy, watermark, dodatkowe kolumny lub wiersze, niespójna skala postaci.

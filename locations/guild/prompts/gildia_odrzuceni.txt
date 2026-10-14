@@ -1,0 +1,7 @@
+Wygeneruj sprite głównej siedziby gildii „Odrzuceni” do gry fantasy 2D pixel art. Widok z góry w lekkim rzucie 3/4, budynek skierowany wejściem w dół obrazu. To stara, solidna siedziba poszukiwaczy przygód: kamienny parter, ciemny niebieskoszary dach, drewniane wzmocnienia, szerokie drzwi, herb przedstawiający pękniętą tarczę bez liter i mała chorągiew.
+
+Pojedynczy budynek na przezroczystym tle, pole grafiki 240 × 192 px, obiekt centralnie, margines co najmniej 8 px. Wyraźna sylwetka dachu, schodki wejściowe i kilka okien. Nie dodawaj napisów, innych budynków, postaci ani podłoża. Element ma działać jako asset na mapie z widokiem z góry, a nie ilustracja tła.
+
+Crisp 2D pixel art, widoczne pojedyncze piksele, ograniczona paleta, ciemny obrys 1 px, ręcznie rysowane dachówki i kamienne bloki, światło z góry z lewej. Bez antyaliasingu, rozmycia i gradientów. Styl zgodny z mroczną, przygodową grą fantasy, ale czytelny i przyjazny.
+
+NEGATIVE: 3D, widok z poziomu ulicy, fotografia, antyaliasing, rozmycie, tło, pełna scena, tekst, litery, watermark, obcięty dach, perspektywa izometryczna.

@@ -1,0 +1,7 @@
+Wygeneruj sprite średniowiecznej stajni do gry fantasy 2D pixel art, widok z góry w lekkim rzucie 3/4, front i szerokie drzwi od dołu obrazu. Długi drewniany budynek z ciemnobrązowym dachem, dużymi wrotami, małym sianem przy wejściu, ogrodzonym boksem przybudowanym z boku i drewnianym żłobem. Bez widocznych koni, aby wnętrze boksu pozostało czytelne.
+
+Jeden asset na przezroczystym tle, grafika 240 × 176 px, obiekt centralny, minimum 8 px marginesu. Bez otoczenia, ziemi, ludzi, drogi, tekstu, podpisu, ramki i cienia poza obiektem. Kierunek frontu jednoznacznie do dołu obrazu.
+
+Ręcznie rysowany 2D pixel art z wyraźnymi pikselami, ograniczoną paletą i obrysem 1 px. Czytelna faktura desek, siana i dachu, bez wygładzania, antyaliasingu, rozmycia ani gradientów. Spójny styl z budynkami Valdorii.
+
+NEGATIVE: 3D, fotografia, widok z poziomu ulicy, antyaliasing, tło, krajobraz, napisy, logo, watermark, nieczytelna plątanina elementów.

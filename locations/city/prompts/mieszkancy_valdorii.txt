@@ -1,0 +1,7 @@
+Wygeneruj sprite sheet zwykłych mieszkańców średniowiecznego miasta fantasy do gry 2D pixel art. Zestaw sześciu różnych postaci: kupiec, strażniczka, rzemieślnik, starsza osoba, podróżny i dziecko. Różne ubrania, kolory i sylwetki, ale wszyscy należą do tego samego świata fantasy. Widok z góry w lekkim rzucie 3/4.
+
+Każda postać ma osobny arkusz 4 × 4 klatki, dokładnie 48 × 48 px na klatkę. Wiersze: dół, lewo, prawo, góra. Kolumny: cztery klatki spokojnego chodu. Postać zajmuje około 22 × 32 px, stoi centralnie. Zachowaj konsekwentny wygląd i wyposażenie w każdej klatce. Nie dodawaj podpisów ani tła.
+
+Lekko pikselowy, ręcznie rysowany 2D pixel art, ostre krawędzie pikseli, ograniczona paleta, obrys 1 px, przezroczyste tło, bez wygładzania i antyaliasingu. Ubrania ciepłe i ziemiste z kilkoma mocnymi akcentami kolorystycznymi, wyraźnie widoczne na zieleni i kamiennych drogach.
+
+NEGATIVE: 3D, fotografia, antyaliasing, rozmycie, tło, scenografia, napisy, watermark, cienie rozlane na tło, dodatkowe kończyny, nierówna siatka.
